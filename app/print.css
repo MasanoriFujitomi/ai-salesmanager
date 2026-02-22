@@ -1,0 +1,108 @@
+/* 印刷時スタイル */
+@media print {
+
+    /* チャットパネル・ヘッダー・ナビを非表示 */
+    header,
+    nav,
+    .bgOrb1,
+    .bgOrb2,
+    [class*="chatPanel"],
+    [class*="inputArea"],
+    [class*="hint"],
+    [class*="placeholder"],
+    [class*="printBtn"],
+    [class*="backLink"],
+    [class*="headerTitle"],
+    [class*="analysisBadge"],
+    [class*="headerRight"] {
+        display: none !important;
+    }
+
+    /* ページ設定 */
+    html,
+    body {
+        background: white !important;
+        color: black !important;
+        font-size: 11pt;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* レポートエリアを全幅表示 */
+    [class*="layout"] {
+        display: block !important;
+    }
+
+    [class*="analysisPanel"] {
+        width: 100% !important;
+        max-height: none !important;
+        overflow: visible !important;
+        background: white !important;
+        border: none !important;
+        padding: 0 !important;
+    }
+
+    #report-print-area {
+        width: 100%;
+        padding: 1cm;
+        background: white !important;
+        color: black !important;
+    }
+
+    /* カードのダークテーマを無効化 */
+    [class*="card"] {
+        background: #f9f9f9 !important;
+        border: 1px solid #ddd !important;
+        color: black !important;
+        page-break-inside: avoid;
+    }
+
+    [class*="cardTitle"],
+    [class*="title"],
+    [class*="text"],
+    [class*="meta"] {
+        color: black !important;
+    }
+
+    [class*="strengthCard"] {
+        background: #f0fff4 !important;
+        border-color: #86efac !important;
+    }
+
+    [class*="improvementCard"] {
+        background: #fffbeb !important;
+        border-color: #fcd34d !important;
+    }
+
+    [class*="actionCard"] {
+        background: #f0fdfa !important;
+        border-color: #5eead4 !important;
+    }
+
+    [class*="barBg"] {
+        background: #eee !important;
+    }
+
+    [class*="overall"] {
+        color: #333 !important;
+        font-size: 13pt;
+    }
+
+    ul,
+    ol,
+    li {
+        color: black !important;
+    }
+
+    /* 印刷ヘッダー */
+    #report-print-area::before {
+        content: "AI営業マネージャー 商談分析レポート";
+        display: block;
+        font-size: 18pt;
+        font-weight: bold;
+        text-align: center;
+        padding: 10px 0 20px;
+        border-bottom: 2px solid #333;
+        margin-bottom: 20px;
+    }
+}

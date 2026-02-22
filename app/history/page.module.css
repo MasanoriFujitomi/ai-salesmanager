@@ -1,0 +1,438 @@
+.page {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.orb1 {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(99, 207, 197, 0.1) 0%, transparent 70%);
+    top: -200px;
+    right: -100px;
+    pointer-events: none;
+}
+
+.orb2 {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+    bottom: -150px;
+    left: -100px;
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.header {
+    margin-bottom: 3rem;
+}
+
+.backLink {
+    color: rgba(99, 207, 197, 0.75);
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    transition: color 0.2s;
+}
+
+.backLink:hover {
+    color: #63cfc5;
+}
+
+.title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, #e2e8f0 0%, #63cfc5 60%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: rgba(226, 232, 240, 0.5);
+    font-size: 1rem;
+}
+
+/* 空状態 */
+.empty {
+    text-align: center;
+    padding: 5rem 2rem;
+    color: rgba(226, 232, 240, 0.5);
+}
+
+.emptyIcon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.empty p {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+}
+
+.startBtn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.8rem 2rem;
+    background: linear-gradient(135deg, #63cfc5, #3b82f6);
+    color: white;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: all 0.3s;
+}
+
+.startBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(99, 207, 197, 0.3);
+}
+
+/* 一覧グリッド */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.3s;
+}
+
+.card:hover {
+    background: rgba(99, 207, 197, 0.05);
+    border-color: rgba(99, 207, 197, 0.25);
+    transform: translateY(-3px);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.customerName {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #e2e8f0;
+}
+
+.dateStr {
+    font-size: 0.825rem;
+    color: rgba(226, 232, 240, 0.45);
+    margin-top: 0.2rem;
+}
+
+.deleteBtn {
+    background: transparent;
+    border: none;
+    color: rgba(226, 232, 240, 0.35);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.deleteBtn:hover {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.impression {
+    font-size: 0.85rem;
+    color: rgba(226, 232, 240, 0.5);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.cardActions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* ボタン共通 */
+.viewBtn,
+.wordBtn,
+.printBtn {
+    flex: 1;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 80px;
+}
+
+.viewBtn {
+    background: rgba(99, 207, 197, 0.1);
+    color: #63cfc5;
+    border: 1px solid rgba(99, 207, 197, 0.25);
+}
+
+.viewBtn:hover {
+    background: rgba(99, 207, 197, 0.2);
+}
+
+.wordBtn {
+    background: rgba(59, 130, 246, 0.1);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+.wordBtn:hover {
+    background: rgba(59, 130, 246, 0.2);
+}
+
+.wordBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.printBtn {
+    background: rgba(245, 158, 11, 0.1);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.printBtn:hover {
+    background: rgba(245, 158, 11, 0.2);
+}
+
+/* モーダル */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem 1rem;
+    overflow-y: auto;
+}
+
+.modal {
+    background: #0f172a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 800px;
+    padding: 2rem;
+    position: relative;
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.modalTitle {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #e2e8f0;
+}
+
+.modalDate {
+    font-size: 0.85rem;
+    color: rgba(226, 232, 240, 0.45);
+}
+
+.modalActions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.closeBtn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(226, 232, 240, 0.6);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.closeBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+}
+
+/* 分析セクション */
+.analysisSection {
+    margin-bottom: 2rem;
+}
+
+.analysisSection h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    margin-bottom: 1rem;
+}
+
+/* SPINグリッド（モーダル内） */
+.spinGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.75rem;
+}
+
+.spinCard {
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.spinKey {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 0.25rem;
+}
+
+.spinLabel {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgba(226, 232, 240, 0.6);
+    margin-bottom: 0.35rem;
+}
+
+.spinValue {
+    font-size: 0.8rem;
+    color: rgba(226, 232, 240, 0.75);
+    line-height: 1.5;
+}
+
+/* アクションプラン */
+.actionList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.actionList li {
+    padding: 0.5rem 0.75rem;
+    border-left: 3px solid #63cfc5;
+    margin-bottom: 0.5rem;
+    background: rgba(99, 207, 197, 0.05);
+    border-radius: 0 6px 6px 0;
+    font-size: 0.9rem;
+    color: rgba(226, 232, 240, 0.8);
+    line-height: 1.5;
+}
+
+/* チャットログ */
+.chatLog {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.chatMsg {
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+}
+
+.userMsg {
+    background: rgba(99, 207, 197, 0.08);
+    border: 1px solid rgba(99, 207, 197, 0.15);
+    align-self: flex-end;
+    max-width: 85%;
+}
+
+.aiMsg {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    max-width: 90%;
+}
+
+.msgRole {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgba(226, 232, 240, 0.5);
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.msgContent {
+    font-size: 0.875rem;
+    color: rgba(226, 232, 240, 0.85);
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.msgTime {
+    font-size: 0.7rem;
+    color: rgba(226, 232, 240, 0.3);
+    margin-top: 0.3rem;
+}
+
+/* 印刷 */
+@media print {
+
+    .orb1,
+    .orb2,
+    .overlay {
+        display: none !important;
+    }
+
+    .backLink,
+    .deleteBtn,
+    .cardActions,
+    .modalActions .closeBtn {
+        display: none !important;
+    }
+
+    html,
+    body {
+        background: white !important;
+        color: black !important;
+    }
+
+    .modal {
+        border: none;
+        background: white !important;
+        color: black !important;
+        padding: 0;
+        max-width: 100%;
+    }
+
+    .spinKey {
+        -webkit-text-fill-color: initial !important;
+    }
+
+    .chatLog {
+        max-height: none !important;
+        overflow: visible !important;
+    }
+}

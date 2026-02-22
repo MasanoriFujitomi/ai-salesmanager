@@ -1,0 +1,149 @@
+.container {
+    padding: 0.25rem 0;
+}
+
+.title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    margin: 0 0 0.4rem 0;
+}
+
+.desc {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 1.6;
+    margin: 0 0 1.25rem 0;
+}
+
+.form {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.required {
+    font-size: 0.7rem;
+    background: rgba(239, 68, 68, 0.18);
+    color: #fca5a5;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+}
+
+.input {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    color: #e2e8f0;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.9rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input:focus {
+    border-color: rgba(99, 207, 197, 0.5);
+}
+
+.input::placeholder {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.error {
+    color: #fca5a5;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.addBtn {
+    align-self: flex-start;
+    padding: 0.5rem 1.2rem;
+    background: linear-gradient(135deg, #63cfc5, #3b82f6);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.addBtn:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.table th {
+    text-align: left;
+    padding: 0.5rem 0.6rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.table td {
+    padding: 0.55rem 0.6rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: rgba(226, 232, 240, 0.85);
+    vertical-align: middle;
+}
+
+.reading {
+    color: rgba(255, 255, 255, 0.5) !important;
+    font-size: 0.82rem !important;
+}
+
+.wordCell strong {
+    color: #63cfc5;
+}
+
+.deleteBtn {
+    padding: 0.25rem 0.6rem;
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.25);
+    border-radius: 4px;
+    color: #fca5a5;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.deleteBtn:hover {
+    background: rgba(239, 68, 68, 0.25);
+}
+
+.empty {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin: 0;
+}

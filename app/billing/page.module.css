@@ -1,0 +1,505 @@
+.page {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.orb1 {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(99, 207, 197, 0.1) 0%, transparent 70%);
+    top: -200px;
+    right: -100px;
+    pointer-events: none;
+}
+
+.orb2 {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+    bottom: -150px;
+    left: -100px;
+    pointer-events: none;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    color: rgba(226, 232, 240, 0.5);
+    font-size: 1.1rem;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* 支払い失敗アラート */
+.alertBanner {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    color: #fca5a5;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.alertBtn {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #fca5a5;
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+    margin-left: auto;
+}
+
+.alertBtn:hover {
+    background: rgba(239, 68, 68, 0.25);
+}
+
+/* ヘッダー */
+.header {
+    margin-bottom: 2rem;
+}
+
+.backLink {
+    color: rgba(99, 207, 197, 0.75);
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    transition: color 0.2s;
+}
+
+.backLink:hover {
+    color: #63cfc5;
+}
+
+.title {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, #e2e8f0 0%, #63cfc5 60%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1.5rem;
+}
+
+/* 現在ステータスカード */
+.statusCard {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 14px;
+    padding: 1.25rem 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.statusLabel {
+    font-size: 0.78rem;
+    color: rgba(226, 232, 240, 0.4);
+    margin-bottom: 0.25rem;
+}
+
+.statusValue {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #e2e8f0;
+}
+
+.statusBadge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.status_trial {
+    background: rgba(99, 207, 197, 0.12);
+    color: #63cfc5;
+    border: 1px solid rgba(99, 207, 197, 0.25);
+}
+
+.status_active {
+    background: rgba(16, 185, 129, 0.12);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.status_past_due {
+    background: rgba(245, 158, 11, 0.12);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.status_suspended {
+    background: rgba(239, 68, 68, 0.12);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.status_cancelled {
+    background: rgba(156, 163, 175, 0.12);
+    color: #9ca3af;
+    border: 1px solid rgba(156, 163, 175, 0.25);
+}
+
+.portalBtn {
+    margin-left: auto;
+    background: rgba(99, 207, 197, 0.08);
+    border: 1px solid rgba(99, 207, 197, 0.2);
+    color: #63cfc5;
+    padding: 0.5rem 1.25rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+}
+
+.portalBtn:hover {
+    background: rgba(99, 207, 197, 0.15);
+}
+
+/* タブ */
+.tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 0;
+}
+
+.tab {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: rgba(226, 232, 240, 0.5);
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: -1px;
+}
+
+.tab:hover {
+    color: rgba(226, 232, 240, 0.8);
+}
+
+.activeTab {
+    color: #63cfc5;
+    border-bottom-color: #63cfc5;
+}
+
+/* プランカード */
+.plansGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.planCard {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 18px;
+    padding: 2rem;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.planCard:hover {
+    transform: translateY(-4px);
+    border-color: rgba(99, 207, 197, 0.2);
+}
+
+.highlighted {
+    border-color: rgba(99, 207, 197, 0.3);
+    background: rgba(99, 207, 197, 0.04);
+}
+
+.current {
+    border-color: rgba(16, 185, 129, 0.4);
+    background: rgba(16, 185, 129, 0.04);
+}
+
+.popularBadge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #63cfc5, #3b82f6);
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.currentBadge {
+    position: absolute;
+    top: -12px;
+    right: 1.5rem;
+    background: rgba(16, 185, 129, 0.2);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #34d399;
+    padding: 0.2rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.planName {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #e2e8f0;
+    margin-bottom: 0.5rem;
+}
+
+.planDesc {
+    font-size: 0.85rem;
+    color: rgba(226, 232, 240, 0.45);
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
+}
+
+.planPrice {
+    margin-bottom: 0.5rem;
+}
+
+.priceNum {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #e2e8f0;
+}
+
+.priceUnit {
+    font-size: 0.9rem;
+    color: rgba(226, 232, 240, 0.45);
+    margin-left: 0.25rem;
+}
+
+.planUsers {
+    font-size: 0.8rem;
+    color: #63cfc5;
+    margin-bottom: 1.25rem;
+    font-weight: 600;
+}
+
+.featureList {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+}
+
+.featureList li {
+    font-size: 0.85rem;
+    color: rgba(226, 232, 240, 0.7);
+    padding: 0.3rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.checkMark {
+    color: #63cfc5;
+    font-weight: 700;
+}
+
+.planBtn {
+    width: 100%;
+    padding: 0.85rem;
+    border-radius: 10px;
+    border: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    background: linear-gradient(135deg, #63cfc5, #3b82f6);
+    color: white;
+    transition: all 0.3s;
+}
+
+.planBtn:hover:not(:disabled) {
+    opacity: 0.88;
+    transform: translateY(-1px);
+}
+
+.planBtn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.planBtnCurrent {
+    background: rgba(16, 185, 129, 0.1);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.priceIdWarning {
+    font-size: 0.75rem;
+    color: #fbbf24;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+/* 請求履歴 */
+
+.emptyState {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: rgba(226, 232, 240, 0.5);
+}
+
+.invoiceTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.invoiceTable th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(226, 232, 240, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.invoiceTable td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: rgba(226, 232, 240, 0.8);
+}
+
+.invoiceTable tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.invStatus {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.invStatus_paid {
+    background: rgba(16, 185, 129, 0.12);
+    color: #34d399;
+}
+
+.invStatus_open {
+    background: rgba(245, 158, 11, 0.12);
+    color: #fbbf24;
+}
+
+.invStatus_uncollectible {
+    background: rgba(239, 68, 68, 0.12);
+    color: #f87171;
+}
+
+.invStatus_void {
+    background: rgba(156, 163, 175, 0.12);
+    color: #9ca3af;
+}
+
+.invoiceActions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.invoiceLink {
+    padding: 0.3rem 0.7rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color: rgba(226, 232, 240, 0.7);
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.invoiceLink:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* 請求先情報フォーム */
+.billingForm {
+    display: grid;
+    gap: 1rem;
+    max-width: 560px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.formLabel {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(226, 232, 240, 0.6);
+}
+
+.formInput {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    color: #e2e8f0;
+    font-size: 0.9rem;
+    transition: border-color 0.2s;
+    outline: none;
+}
+
+.formInput:focus {
+    border-color: rgba(99, 207, 197, 0.4);
+}
+
+.formInput::placeholder {
+    color: rgba(226, 232, 240, 0.25);
+}
+
+.saveBtn {
+    padding: 0.8rem 2rem;
+    background: linear-gradient(135deg, #63cfc5, #3b82f6);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 0.5rem;
+    width: fit-content;
+}
+
+.saveBtn:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+}

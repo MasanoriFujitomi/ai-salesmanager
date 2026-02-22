@@ -1,0 +1,158 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1rem 0;
+}
+
+.headerRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.printBtn {
+    flex-shrink: 0;
+    padding: 0.45rem 1rem;
+    background: rgba(99, 207, 197, 0.1);
+    border: 1px solid rgba(99, 207, 197, 0.35);
+    border-radius: 8px;
+    color: #63cfc5;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.printBtn:hover {
+    background: rgba(99, 207, 197, 0.22);
+    transform: translateY(-1px);
+}
+
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    margin: 0;
+}
+
+.meta {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.25rem;
+}
+
+.card ul,
+.card ol {
+    margin: 0.5rem 0 0 0;
+    padding-left: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+.cardTitle {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    margin: 0 0 0.75rem 0;
+}
+
+.text {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.scores {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.scoreRow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.scoreLabel {
+    font-size: 0.85rem;
+    font-weight: 600;
+    width: 130px;
+    flex-shrink: 0;
+}
+
+.barBg {
+    flex: 1;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.barFill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.8s ease;
+}
+
+.scoreVal {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    width: 30px;
+    text-align: right;
+}
+
+.overall {
+    margin-top: 0.5rem;
+    text-align: right;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+}
+
+.overall strong {
+    color: #63cfc5;
+    font-size: 1.1rem;
+}
+
+.spinSection {
+    margin-bottom: 1rem;
+}
+
+.spinSection h4 {
+    margin: 0 0 0.3rem 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.spinSection ul {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.strengthCard {
+    border-color: rgba(16, 185, 129, 0.3);
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.improvementCard {
+    border-color: rgba(245, 158, 11, 0.3);
+    background: rgba(245, 158, 11, 0.05);
+}
+
+.actionCard {
+    border-color: rgba(99, 207, 197, 0.3);
+    background: rgba(99, 207, 197, 0.05);
+}

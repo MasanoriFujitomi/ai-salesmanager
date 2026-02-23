@@ -1,6 +1,10 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import HamburgerMenu from '@/components/HamburgerMenu';
+import CalendarView, { type MeetingContext } from '@/components/CalendarView';
 import styles from './page.module.css';
 
 const FEATURES = [
@@ -22,8 +26,21 @@ const FEATURES = [
 ];
 
 export default function Home() {
+  const router = useRouter();
+  const [meetingContext, setMeetingContext] = useState<MeetingContext | null>(null);
+
+  const handleSelectMeeting = (context: MeetingContext) => {
+    setMeetingContext(context);
+    // 会社名をsessionStorageに保存してセッションページで使う
+    sessionStorage.setItem('meetingContext', JSON.stringify(context));
+    router.push('/session');
+  };
+
   return (
     <div className={styles.page}>
+      {/* ハンバーガーメニュー */}
+      <HamburgerMenu />
+
       {/* Background gradient orbs */}
       <div className={styles.orb1} />
       <div className={styles.orb2} />
@@ -43,12 +60,22 @@ export default function Home() {
           <Link href="/session" className={styles.ctaBtn}>
             セッションを開始する →
           </Link>
-          <Link href="/history" className={styles.historyBtn}>
-            📋 商談履歴
-          </Link>
-          <Link href="/billing" className={styles.billingBtn}>
-            💳 請求・プラン管理
-          </Link>
+
+          {/* カレンダー表示（セッション開始ボタンの直下） */}
+          <CalendarView onSelectMeeting={handleSelectMeeting} />
+
+          {/* 商談履歴と単語登録を同一行に配置 */}
+          <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link href="/history" className={styles.historyBtn}>
+              📋 商談履歴
+            </Link>
+            <Link href="/session" className={styles.historyBtn}>
+              📝 単語登録
+            </Link>
+            <Link href="/billing" className={styles.billingBtn}>
+              💳 請求・プラン管理
+            </Link>
+          </div>
         </header>
 
         <section className={styles.features}>

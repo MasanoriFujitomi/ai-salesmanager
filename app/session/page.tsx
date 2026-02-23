@@ -5,8 +5,9 @@ import Link from 'next/link';
 import VoiceInput from '@/components/VoiceInput';
 import MeetingSummary from '@/components/MeetingSummary';
 import WordRegistry from '@/components/WordRegistry';
+import HamburgerMenu from '@/components/HamburgerMenu';
 import { extractAnalysisFromResponse, type MeetingRecord, type ConversationTurn } from '@/lib/spin-analysis';
-import { type HistoryRecord, HISTORY_KEY } from '@/lib/history-store';
+import { type HistoryRecord } from '@/lib/history-store';
 import type { CustomWord } from '@/components/VoiceInput';
 import styles from './page.module.css';
 import '../print.css';
@@ -17,18 +18,38 @@ interface Message {
     timestamp: string;
 }
 
-const INITIAL_MESSAGE: Message = {
-    role: 'assistant',
-    content: `こんにちは！ 商談お疲れさまでした。🤝\n\n今日の商談について、詳しく聞かせてください。\n\nまず、今日はどんな会社・担当者の方と商談をされましたか？また、全体的な感触はいかがでしたか？`,
-    timestamp: new Date().toISOString(),
-};
+// 新しい会話フロー：①の質問を動的に生成する関数
+function createInitialMessage(): Message {
+    // sessionStorageから商談情報を取得（カレンダー or フリー入力由来）
+    let companyName = '⚫︎⚫︎';
+    try {
+        const stored = sessionStorage.getItem('meetingContext');
+        if (stored) {
+            const context = JSON.parse(stored);
+            if (context.companyName) {
+                companyName = context.companyName;
+            }
+        }
+    } catch { /* ignore */ }
+
+    return {
+        role: 'assistant',
+        content: `商談お疲れさまでした。🤝\nこの商談報告は、${companyName}社の案件ですか？`,
+        timestamp: new Date().toISOString(),
+    };
+}
 
 export default function SessionPage() {
-    const [messages, setMessages] = useState<Message[]>([INITIAL_MESSAGE]);
+    const [messages, setMessages] = useState<Message[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [analysisResult, setAnalysisResult] = useState<Partial<MeetingRecord> | null>(null);
     const [error, setError] = useState<string | null>(null);
     const bottomRef = useRef<HTMLDivElement>(null);
+
+    // ページ初期化時に初期メッセージを生成（sessionStorageはクライアントのみ）
+    useEffect(() => {
+        setMessages([createInitialMessage()]);
+    }, []);
 
     // 機能3: 音声読み上げ
     const [isMuted, setIsMuted] = useState(false);
@@ -158,6 +179,8 @@ export default function SessionPage() {
                 <Link href="/" className={styles.backLink}>← ホームへ</Link>
                 <h1 className={styles.headerTitle}>🤝 AIマネージャー セッション</h1>
                 <div className={styles.headerRight}>
+                    {/* ハンバーガーメニュー */}
+                    <HamburgerMenu />
                     {/* 機能3: ミュートボタン */}
                     <button
                         className={`${styles.muteBtn} ${isMuted ? styles.muted : ''}`}

@@ -14,14 +14,12 @@ declare module 'next-auth' {
             email: string;
             name: string;
             company: string;
-            twoFactorVerified: boolean;
             calendarEnabled: boolean;
         };
     }
     interface User {
         id: string;
         company: string;
-        twoFactorVerified: boolean;
         calendarEnabled: boolean;
     }
 }
@@ -30,7 +28,6 @@ declare module 'next-auth/jwt' {
     interface JWT {
         id: string;
         company: string;
-        twoFactorVerified: boolean;
         calendarEnabled: boolean;
     }
 }
@@ -66,7 +63,6 @@ export const authOptions: NextAuthOptions = {
                     email: user.email,
                     name: user.name,
                     company: user.company,
-                    twoFactorVerified: false, // ログイン直後は未検証
                     calendarEnabled: user.calendarEnabled,
                 };
             },
@@ -84,14 +80,10 @@ export const authOptions: NextAuthOptions = {
             if (user) {
                 token.id = user.id;
                 token.company = user.company;
-                token.twoFactorVerified = user.twoFactorVerified;
                 token.calendarEnabled = user.calendarEnabled;
             }
-            // セッション更新時（2FA検証後など）
+            // セッション更新時
             if (trigger === 'update' && session) {
-                if (typeof session.twoFactorVerified === 'boolean') {
-                    token.twoFactorVerified = session.twoFactorVerified;
-                }
                 if (typeof session.calendarEnabled === 'boolean') {
                     token.calendarEnabled = session.calendarEnabled;
                 }
@@ -104,7 +96,6 @@ export const authOptions: NextAuthOptions = {
                 email: token.email ?? '',
                 name: token.name ?? '',
                 company: token.company,
-                twoFactorVerified: token.twoFactorVerified,
                 calendarEnabled: token.calendarEnabled,
             };
             return session;

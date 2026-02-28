@@ -40,8 +40,8 @@ function LoginForm() {
                 return;
             }
 
-            // ログイン成功 → 2FA検証ページへ
-            router.push('/verify-2fa');
+            // ログイン成功 → 設定画面へ
+            router.push('/settings');
         } catch {
             setError('ログイン中にエラーが発生しました');
         } finally {

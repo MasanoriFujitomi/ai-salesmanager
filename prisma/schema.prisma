@@ -2,7 +2,7 @@
 // ローカル: ローカルPostgreSQL / 本番: Google Cloud SQL for PostgreSQL
 
 generator client {
-  provider = "prisma-client-js"
+  provider   = "prisma-client-js"
   engineType = "library"
 }
 
@@ -12,25 +12,20 @@ datasource db {
 
 // ユーザーアカウント
 model User {
-  id              String    @id @default(cuid())
-  email           String    @unique
-  passwordHash    String
-  name            String
-  company         String
-  department      String
-  position        String
-  phone           String    // 2段階認証用携帯電話番号
-
-  // 2段階認証
-  twoFactorCode   String?
-  twoFactorExpiry DateTime?
-  twoFactorVerified Boolean @default(false) // 現セッションで2FA検証済みか
+  id           String @id @default(cuid())
+  email        String @unique
+  passwordHash String
+  name         String
+  company      String
+  department   String
+  position     String
+  phone        String // 2段階認証用携帯電話番号
 
   // Googleカレンダー連携
   googleAccessToken  String?
   googleRefreshToken String?
   googleTokenExpiry  DateTime?
-  calendarEnabled    Boolean @default(false)
+  calendarEnabled    Boolean   @default(false)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

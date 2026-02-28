@@ -1,0 +1,27 @@
+
+> ai-sales-manager@0.1.0 build
+> next build
+
+▲ Next.js 16.1.6 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 6.8s
+  Running TypeScript ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/28) ...
+  Generating static pages using 7 workers (7/28) 
+⨯ useSearchParams() should be wrapped in a suspense boundary at page "/login". Read more: https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at Q (/Users/masanorifujitomi2024/Library/Mobile Documents/com~apple~CloudDocs/AIプログラム/ai-sales-manager/.next/server/chunks/ssr/node_modules_next_920e7746._.js:2:2111)
+    at o (/Users/masanorifujitomi2024/Library/Mobile Documents/com~apple~CloudDocs/AIプログラム/ai-sales-manager/.next/server/chunks/ssr/node_modules_next_920e7746._.js:4:5284)
+    at g (/Users/masanorifujitomi2024/Library/Mobile Documents/com~apple~CloudDocs/AIプログラム/ai-sales-manager/.next/server/chunks/ssr/[root-of-the-server]__81fdebc8._.js:1:2786)
+    at an (/Users/masanorifujitomi2024/Library/Mobile Documents/com~apple~CloudDocs/AIプログラム/ai-sales-manager/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:84360)
+    at ai (/Users/masanorifujitomi2024/Library/Mobile Documents/com~apple~CloudDocs/AIプログラム/ai-sales-manager/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:86179)
+    at al (/Users/masanorifujitomi2024/Library/Mobile Documents/com~apple~CloudDocs/AIプログラム/ai-sales-manager/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:107953)
+    at as (/Users/masanorifujitomi2024/Library/Mobile Documents/com~apple~CloudDocs/AIプログラム/ai-sales-manager/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:105368)
+    at aa (/Users/masanorifujitomi2024/Library/Mobile Documents/com~apple~CloudDocs/AIプログラム/ai-sales-manager/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:84712)
+    at ai (/Users/masanorifujitomi2024/Library/Mobile Documents/com~apple~CloudDocs/AIプログラム/ai-sales-manager/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:86228)
+    at ai (/Users/masanorifujitomi2024/Library/Mobile Documents/com~apple~CloudDocs/AIプログラム/ai-sales-manager/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js:2:104708)
+Error occurred prerendering page "/login". Read more: https://nextjs.org/docs/messages/prerender-error
+Export encountered an error on /login/page: /login, exiting the build.
+⨯ Next.js build worker exited with code: 1 and signal: null

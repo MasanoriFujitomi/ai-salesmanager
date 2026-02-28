@@ -52,7 +52,11 @@ export async function POST(req: NextRequest) {
     } catch (error) {
         console.error('Registration error:', error);
         return NextResponse.json(
-            { error: 'アカウント作成中にエラーが発生しました' },
+            {
+                error: 'アカウント作成中にエラーが発生しました',
+                details: error instanceof Error ? error.message : String(error),
+                stack: error instanceof Error ? error.stack : undefined
+            },
             { status: 500 }
         );
     }

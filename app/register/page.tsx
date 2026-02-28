@@ -40,7 +40,10 @@ export default function RegisterPage() {
                 body: JSON.stringify(form),
             });
             const data = await res.json();
-            if (!res.ok) throw new Error(data.error);
+            if (!res.ok) {
+                const errorMessage = data.details ? `${data.error}: ${data.details}` : data.error;
+                throw new Error(errorMessage);
+            }
             router.push('/login?registered=true');
         } catch (err) {
             setError(err instanceof Error ? err.message : 'エラーが発生しました');

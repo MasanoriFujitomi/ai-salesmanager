@@ -2,12 +2,20 @@
 // プロフィール情報編集 + Googleカレンダー連携ON/OFF
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
 export default function SettingsPage() {
+    return (
+        <Suspense fallback={<div style={pageStyle}>Loading...</div>}>
+            <SettingsContent />
+        </Suspense>
+    );
+}
+
+function SettingsContent() {
     const { data: session, update } = useSession();
     const router = useRouter();
     const searchParams = useSearchParams();
